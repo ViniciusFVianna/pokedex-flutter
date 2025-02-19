@@ -11,11 +11,14 @@ class PokemonItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 2),
+        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.indigo, width: 0.5),
             borderRadius: BorderRadius.circular(8)),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
               radius: 60,
@@ -25,7 +28,7 @@ class PokemonItemList extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 8,
+              width: 16,
             ),
             Text(
               name,

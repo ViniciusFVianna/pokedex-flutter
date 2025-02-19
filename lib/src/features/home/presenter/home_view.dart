@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedexflutter/src/features/home/presenter/components/pokemon_item_list.dart';
 import 'package:pokedexflutter/src/features/home/presenter/viewModel/home_view_model.dart';
@@ -49,23 +50,32 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  _pokemonsList() => Column(
-        children: [
-          Text('Pokemons'),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                spacing: 4,
-                children: List.generate(
-                  _homeViewModel.listPokemon.length,
-                  (index) => PokemonItemList(
-                    name: _homeViewModel.listPokemon[index].name,
-                    url: _homeViewModel.listPokemon[index].url,
+  _pokemonsList() => Padding(
+     padding: EdgeInsets.symmetric(horizontal: 16),
+    child: Column(
+       mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Pokemons', style: TextStyle(fontSize: 20),),
+            SizedBox(height: 16,),
+            
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 4,
+                  children: List.generate(
+                    _homeViewModel.listPokemon.length,
+                    (index) => PokemonItemList(
+                      name: _homeViewModel.listPokemon[index].name,
+                      url: _homeViewModel.listPokemon[index].url,
+                    ),
                   ),
                 ),
               ),
-            ),
-          )
-        ],
-      );
+            )
+          ],
+        ),
+  );
 }
